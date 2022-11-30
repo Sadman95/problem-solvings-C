@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 void bubble_sort(int n, int *arr);
+void swap_num(int *tmp, int *p, int *q);
 int main()
 
 {
@@ -31,10 +32,15 @@ void bubble_sort(int n, int *arr)
         {
             if (arr[j] > arr[j + 1])
             {
-                temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
+                swap_num(&temp, &arr[j], &arr[j + 1]);
             }
         }
     }
+}
+
+void swap_num(int *tmp, int *p, int *q)
+{
+    *tmp = *p;
+    *p = *q;
+    *q = *tmp;
 }
